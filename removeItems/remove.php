@@ -209,6 +209,8 @@ tfoot td{
         <button type="submit" name="remove">Remove Item</button>
         
     </div>
+   
+        
 </form>
             
             <div class="tabular--wrapper">

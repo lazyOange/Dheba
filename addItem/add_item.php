@@ -202,6 +202,34 @@ tfoot td{
       </div>
     </form>
   </div>
+  
+<script>
+  $(document).ready(function(){
+    $('.form').on('submit', function(e){
+      e.preventDefault(); // Prevent default form submission
+      
+      var formData = $(this).serialize(); // Serialize form data
+      
+      $.ajax({
+        type: 'POST',
+        url: 'submit_item.php', // Replace 'submit_item.php' with your PHP script URL
+        data: formData,
+        success: function(response){
+          alert(response); // Display success message (for testing)
+
+            // Clear form fields
+            $('.form')[0].reset();
+
+                // Update table with the response received from add_table.php
+                $('.table--container').load('../addItem/add_table.php');
+              },
+        error: function(xhr, status, error){
+          console.log(xhr.responseText); // Log error message
+        }
+      });
+    });
+  });
+</script>
  <!-- Display Items in Table -->
     <div class="tabular--wrapper">
         <h3 class="main--title">Items Data</h3>

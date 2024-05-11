@@ -41,28 +41,6 @@
     align-items: center;
     gap: 1rem;
 }
-.search--box{
-    background: var(--secondary);
-    border-radius: 15px;
-    color: white;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 4px 12px; 
-    width:200px;
-    height: 35px;
-}
-.search--box input{
-    background: transparent;
-    padding: 10px;
-}
-.search--box i{
-    height: 20px;
-    margin-bottom: 27px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: all 0.5 ease-out;
-}
 
 /* sales recorder */
 .container {
@@ -255,6 +233,33 @@ tfoot td{
         var totalPrice = unitPrice * quantity;
         document.getElementById('totalPrice').value = totalPrice.toFixed(2);
     });
+   
+  $(document).ready(function(){
+    $('.form').on('submit', function(e){
+      e.preventDefault(); // Prevent default form submission
+      
+      var formData = $(this).serialize(); // Serialize form data
+      
+      $.ajax({
+        type: 'POST',
+        url: 'record_sales.php', // Replace 'submit_item.php' with your PHP script URL
+        data: formData,
+        success: function(response){
+          alert(response); // Display success message (for testing)
+
+            // Clear form fields
+            $('.form')[0].reset();
+
+                // Update table with the response received from add_table.php
+                $('.table--container').load('../dailySales/daily_table.php');
+              },
+        error: function(xhr, status, error){
+          console.log(xhr.responseText); // Log error message
+        }
+      });
+    });
+  });
+
 </script>
             
             <div class="tabular--wrapper">

@@ -22,8 +22,7 @@ if ($stmt->affected_rows > 0) {
 }
 
 
-// Close statement 
-$stmt->close();
+
 
 // Check if the button is clicked
 if (isset($_POST['remove'])) {

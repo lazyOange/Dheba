@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Form</title>
+<link rel="stylesheet" href="register.css">
+</head>
+<body>
+    <h1>Registration Form</h1>
+    <form action="register.php" method="post"> <!-- This action should be updated to your backend file handling the registration -->
+        <label for="fname">First Name:</label>
+        <input type="text" id="fname" name="fname" placeholder="First Name" required>
+
+        <label for="mname">Middle Name:</label>
+        <input type="text" id="mname" name="mname" placeholder="Middle Name">
+
+        <label for="lname">Last Name:</label>
+        <input type="text" id="lname" name="lname" placeholder="Last Name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Email" required>
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" minlength="5" placeholder="Username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" minlength="5" placeholder="Password" required>
+
+        <label for="confirmpassword">Confirm Password:</label>
+        <input type="password" id="confirmpassword" name="confirmpassword" minlength="5" placeholder="Confirm Password" required>
+
+        <input type="submit" valu="Register">
+    </form>
+    <div class="login-back">
+        <p>Already registered? <a href="login.html">Back to Login</a></p>
+    </div>
+</body>
+</html>

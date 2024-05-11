@@ -1,5 +1,6 @@
 <?php
         include('../functions/dbconnect.php');
+        
 // Fetch data from the items table
 $sql = "SELECT date, item, description FROM removeitem";
 $result = $conn->query($sql);

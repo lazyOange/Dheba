@@ -31,34 +31,14 @@ require '../component/nav-bar.php';
 }
 .header--title {
     color: white;
+    
 }
 .user--info {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
-.search--box {
-    background: var(--secondary);
-    border-radius: 15px;
-    color: white;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 4px 12px;
-    width: 200px;
-    height: 35px;
-}
-.search--box input {
-    background: transparent;
-    padding: 10px;
-}
-.search--box i {
-    height: 20px;
-    margin-bottom: 27px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: all 0.5s ease-out;
-}
+
 .container {
     max-width: 1000px;
     margin: 75px auto;
@@ -112,23 +92,31 @@ require '../component/nav-bar.php';
     }
 }
 </style>
-<div class="container">
-    <form action="report_data.php" method="POST" class="form">
-        <label for="startDate">Start Date:</label>
-        <input type="date" id="startDate" name="startDate" required>
-        <label for="endDate">End Date:</label>
-        <input type="date" id="endDate" name="endDate" required>
-        <button type="button" id="generateReportBtn">Generate Report</button>
-    </form>
-</div>
-<div id="reportContainer" class="container"></div>
-<script>
-document.getElementById('generateReportBtn').addEventListener('click', function() {
-    const startDate = document.getElementById('startDate').value;
-    const endDate = document.getElementById('endDate').value;
-    // Fetch data and generate report here
-});
-</script>
+<div class="main--content">
+        <div class="header--wrapper">
+            <div class="header--title">
+                <h2>Sales Report Generator</h2>
+            </div>
+            <div class="user--info">
+                <!-- Form for inputting date range -->
+                <form action="do.php" method="POST" class="form">
+                    <div class="input-group">
+                        <label for="start_date">Start Date:</label>
+                        <input type="date" id="start_date" name="start_date" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="end_date">End Date:</label>
+                        <input type="date" id="end_date" name="end_date" required>
+                    </div>
+                    <div class="button-group">
+                        <button type="submit">Generate PDF</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    
 
 <?php
     include('../component/footer.php');
